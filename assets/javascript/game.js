@@ -27,8 +27,9 @@
 
     // Presents the hidden word and guesses on the page
     document.querySelector("#word").innerHTML = wordHangman.join(" ");
-    document.querySelector("#guessed").innerHTML = guessed.join(" ");
     document.querySelector("#guessesRemaining").innerHTML = "Guesses remaining: " + guessesRemaining;
+    document.querySelector("#guessed").innerHTML = guessed.join(" ");
+
 
 
     // Create function to detect keyboard input
@@ -39,17 +40,17 @@
         // Add the letter to the guessed list if it isn't already guessed
         if (guessed.indexOf(letter) < 0) {
             guessed.push(letter)
-            document.querySelector("#guessed").innerHTML = guessed.join(" ");
+            document.querySelector("#guessed").innerHTML = guessed.join(", ");
 
             // Deduct guess from guessesRemaining only if it isn't a correct guess
             if (wordSplit.indexOf(letter) < 0) {
-            document.querySelector("#guessesRemaining").innerHTML = "Guesses remaining: " + --guessesRemaining;
+                document.querySelector("#guessesRemaining").innerHTML = "Guesses remaining: " + --guessesRemaining;
             }
         }
 
         // Check whether player input is in word
         for (var i = 0; i < wordSplit.length; i++) {
-            // If so, r
+            // If so, replace the hidden letter with the shown one
             if (letter === wordSplit[i]) {
                 wordHangman[i] = letter
 
@@ -58,10 +59,21 @@
             }
         }
 
-        // Check whether player input is in word
-        // if (wordSplit.indexOf(letter) >= 0) {
-        //     console.log(wordSplit.indexOf(letter))
-        //     console.log(letter)
+        // If guessesRemaining reaches 0 and the word is not complete, the user loses
+        if (wordSplit.toString() === wordHangman.toString()) {
+            alert("You win!  Play again?")
+            
+        }
+        else if (guessesRemaining < 1 && wordSplit.toString() != wordHangman.toString()) {
+            console.log("word split: " + wordSplit)
+            console.log("word Hangman: " + wordHangman)
+            alert("You lose!  Play again?")
+        } 
+
+
+
+
+
 
 
     }
