@@ -4,13 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <title>Hangman Game</title>
-    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+    <!-- My CSS -->
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
 
 <body>
     <h1>Hangman</h1>
-    <h2>Press any key to get started!</h2>
+    <h2>Press any key to get started! Press "enter" to reset the game.</h2>
 
     <br>
 
@@ -24,10 +27,13 @@
     <br>
 
     <div id="guessed"></div>
+
+    <br>
+    <div>Game result:</div>
+    <div id="gameResult"></div>
 </body>
 
 <script src="assets/javascript/game.js">
-
 </script>
 
 </html>
