@@ -7,3 +7,26 @@
 .nintendo{
     height: 100px;
 }
+
+
+
+@font-face {
+    font-family: 'eight-bit';
+    src: url(../font/8-bit-madness/8-bit-madness.woff2) format('woff2'),
+         url(../font/8-bit-madness/8-bit-madness.woff) format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+h1{
+    font-family: 'eight-bit';
+    font-size: 78px;
+}
+
+h2{
+    font-family: 'eight-bit'
+}
+
+.eight-bit{
+    font-family: 'eight-bit';
+}
