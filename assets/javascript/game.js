@@ -15,7 +15,7 @@
 
 
     function initGame() {
-        wordBank = ['eagle', 'tiger', 'elephant', 'moose', 'parakeet', 'turtle'];
+        wordBank = ['mario', 'pikachu', 'kirby', 'ganondorf', 'waluigi', 'yoshi'];
         word = wordBank[Math.floor(Math.random() * wordBank.length)];
         wordSplit = [];
         wordHangman = [];
@@ -32,9 +32,6 @@
         document.querySelector("#guessed").innerHTML = guessed.join(" ");
         document.querySelector("#gameResult").innerHTML = "";
     }
-
-    initGame()
-    playGame()
 
     function playGame() {
         // Create function to detect keyboard input
@@ -84,7 +81,8 @@
         }
     }
 
-
+initGame()
+playGame()
 
 
 

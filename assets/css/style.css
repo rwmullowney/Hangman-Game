@@ -1,0 +1,9 @@
+/* Background image */
+.page-background{
+    background-image: url(../images/background/morning.png);
+}
+
+/* Header */
+.nintendo{
+    height: 100px;
+}
