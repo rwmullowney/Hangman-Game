@@ -66,6 +66,7 @@
                 if (wordSplit.toString() === wordHangman.toString()) {
                     window.setTimeout(function () {
                         document.querySelector("#gameResult").innerHTML = "You win!  Press 'enter' to play again";
+                        // document.getElementById('myAudio').play();
                     }, 1);
                 // Player loses
                 } else if (guessesRemaining < 1 && wordSplit.toString() != wordHangman.toString()) {
@@ -80,6 +81,10 @@
             }
         }
     }
+
+// Play sound effects upon winning or losing
+
+
 
 initGame()
 playGame()

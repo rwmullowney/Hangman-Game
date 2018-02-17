@@ -13,7 +13,7 @@
 
 <body class="page-background">
     <!-- Header -->
-    <div class="container mt-3">
+    <div class="container mt-3 mb-5">
         <div class="row justify-content-center">
 
             <div>
@@ -25,32 +25,42 @@
         </div>
     </div>
 
+    <!-- <div class="container">
+        <div class="row coin-border">a</div>
+    </div> -->
+
     <!-- Main body -->
     <div class="container">
         <div class="row">
             <!-- Game section -->
-            <section class="col-6">
+            <section class="col-6 text-center b-right">
                 <div class="ml-4 eight-bit">
                     <h2>Press any key to get started!</h2>
 
+                    <h3>Current word:</h3>
                     <div id="word"></div>
 
-                    <div id="guessesRemaining"></div>
+                    <h4 id="guessesRemaining" class="mt-2"></h4>
 
                     <div id="guessed"></div>
 
-                    <div>Game result:</div>
+                    <h4 class="mt-2">Game result:</h4>
                     <div id="gameResult"></div>
                 </div>
             </section>
 
             <!-- Info section -->
-            <section class="col-6">
+            <section class="col-6 eight-bit b-left">
                 test
             </section>
         </div>
     </div>
+
+    <!-- <audio id="gameWin" src="assets/sounds/win.wav"></audio> -->
 </body>
+
+<!-- Audio file -->
+
 
 <script src="assets/javascript/game.js">
 </script>
