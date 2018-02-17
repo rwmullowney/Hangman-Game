@@ -10,9 +10,10 @@
 
     // document.querySelector("#test").innerHTML = testArray.join(" ");
 
-
-    // Establish variables
-
+    // Establish wins - need to be exclusive from initGame
+    var wins = 0
+    document.querySelector("#wins").innerHTML = "Wins: " + wins;  
+      
 
     function initGame() {
         wordBank = ['mario', 'pikachu', 'bowser', 'zelda', 'dedede'];
@@ -67,6 +68,7 @@
                     window.setTimeout(function () {
                         document.querySelector("#gameResult").innerHTML = "You win!  Press 'enter' to play again";
                         // document.getElementById('myAudio').play();
+                        document.querySelector("#wins").innerHTML = "Wins: " + ++wins;
                         infoSwitch();
                     }, 1);
                 // Player loses
