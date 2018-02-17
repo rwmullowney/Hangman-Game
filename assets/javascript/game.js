@@ -15,7 +15,7 @@
 
 
     function initGame() {
-        wordBank = ['mario', 'pikachu', 'kirby', 'ganondorf', 'waluigi', 'yoshi'];
+        wordBank = ['mario', 'pikachu', 'bowser', 'ganondorf', 'pikmin', 'dedede'];
         word = wordBank[Math.floor(Math.random() * wordBank.length)];
         wordSplit = [];
         wordHangman = [];

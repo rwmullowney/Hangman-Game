@@ -55,6 +55,21 @@ h3{
 }
 
 
+/* Info Section */
+/* .img-container{
+    background-color: #000000;
+    opacity: 0.5;
+} */
+
+.info-image{
+    margin-right: 20%;
+}
+
+.info-text{
+    margin-right: 20%;
+}
+
+
 /* General */
 @font-face {
     font-family: 'eight-bit';
@@ -66,4 +81,8 @@ h3{
 
 .eight-bit{
     font-family: 'eight-bit';
+}
+
+.margin-bot{
+    margin-bottom: 110px;
 }
