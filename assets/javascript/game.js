@@ -11,17 +11,25 @@
     // document.querySelector("#test").innerHTML = testArray.join(" ");
 
     // Establish wins - need to be exclusive from initGame
-    var wins = 0
-    document.querySelector("#wins").innerHTML = "Wins: " + wins;  
-      
+    let wins = 0
+    let wordBank = ['mario', 'pikachu', 'bowser', 'zelda', 'dedede'];
+
+    document.querySelector("#wins").innerHTML = "Wins: " + wins;
+
 
     function initGame() {
-        wordBank = ['mario', 'pikachu', 'bowser', 'zelda', 'dedede'];
-        word = wordBank[Math.floor(Math.random() * wordBank.length)];
+        randNum = Math.floor(Math.random() * wordBank.length)
+        word = wordBank[randNum];
         wordSplit = [];
         wordHangman = [];
         guessed = [];
         guessesRemaining = 10;
+
+        console.log(word)
+        // Remove the chosen word from the array
+        console.log(randNum)
+        wordBank.splice(randNum, 1)
+        console.log(wordBank)
 
         // Split the letters of the word up and add them to an array, and create array with letters hidden
         for (var i = 0; i < word.length; i++) {
@@ -35,6 +43,9 @@
     }
 
     function playGame() {
+        // Initialize the game
+        initGame();
+
         // Create function to detect keyboard input
         document.onkeyup = function () {
 
@@ -66,12 +77,19 @@
                 // Player wins
                 if (wordSplit.toString() === wordHangman.toString()) {
                     window.setTimeout(function () {
+                        if (wordBank.length === 0) {
+                            document.querySelector("#gameResult").innerHTML = "You win!";
+                            document.querySelector("#wins").innerHTML = "Wins: " + ++wins;
+                            document.querySelector("#infoImage").innerHTML = `<h2>You've completed the game!</h2>`;
+                            document.querySelector("#infoText").innerHTML = "<p>Please refresh the page to play again.</p>";
+                            return
+                        }
                         document.querySelector("#gameResult").innerHTML = "You win!  Press 'enter' to play again";
                         // document.getElementById('myAudio').play();
                         document.querySelector("#wins").innerHTML = "Wins: " + ++wins;
                         infoSwitch();
                     }, 1);
-                // Player loses
+                    // Player loses
                 } else if (guessesRemaining < 1 && wordSplit.toString() != wordHangman.toString()) {
                     document.querySelector("#gameResult").innerHTML = "You lose!  The word was '" + word + "'. \n Press 'enter' to play again";
                     infoSwitch();
@@ -79,31 +97,31 @@
 
                 // Reset the game when the player presses enter after winning/losing
             } else {
-                if (keyCode === 13) {
+                if (keyCode === 13 && wordBank.length > 0) {
                     initGame();
                 }
             }
         }
     }
 
-    function infoSwitch(){
+    function infoSwitch() {
         if (word === 'mario') {
-        document.querySelector("#infoImage").innerHTML = '<img class="img-fluid nintendo" src="assets/images/mario.png" alt="Mario jumping">';
-        document.querySelector("#infoText").innerHTML = "<p>Mario is the hero of the legendary 'Mario' series.  First introduced on the NES in 1985, Mario became a cultural icon and is now one of the most recognizable characters in the world.</p>";
+            document.querySelector("#infoImage").innerHTML = '<img class="img-fluid nintendo" src="assets/images/mario.png" alt="Mario jumping">';
+            document.querySelector("#infoText").innerHTML = "<p>Mario is the hero of the legendary 'Mario' series.  First introduced on the NES in 1985, Mario became a cultural icon and is now one of the most recognizable characters in the world.</p>";
         }
-        if (word === 'zelda'){
+        if (word === 'zelda') {
             document.querySelector("#infoImage").innerHTML = '<img class="img-fluid nintendo" src="assets/images/zelda.png" alt="Princess Zelda holding a sword">';
             document.querySelector("#infoText").innerHTML = "<p>Princess Zelda plays the hero's counterpart in the Legend of Zelda series.  Following the first release in 1986, the series has consistenly produced games that are some of the most highly regarded in the industry.</p>";
         }
-        if (word === 'pikachu'){
+        if (word === 'pikachu') {
             document.querySelector("#infoImage").innerHTML = '<img class="img-fluid nintendo" src="assets/images/pikachu.png" alt="Pikachu sitting">';
             document.querySelector("#infoText").innerHTML = "<p>Pikachu was one of the primary charaters of the massively successful Pokemon TV show.  It began as a video game for the Game Boy, and as of today the series has sold more than 300 million copies.</p>";
         }
-        if (word === 'bowser'){
+        if (word === 'bowser') {
             document.querySelector("#infoImage").innerHTML = '<img class="img-fluid nintendo" src="assets/images/bowser.png" alt="Bowser in an aggressive stance">';
             document.querySelector("#infoText").innerHTML = "<p>Bowser is the primary antagonist of the Mario series.  The standard plot involves him capturing a princess, and Mario coming to the rescue.</p>";
         }
-        if (word === 'dedede'){
+        if (word === 'dedede') {
             document.querySelector("#infoImage").innerHTML = '<img class="img-fluid nintendo" src="assets/images/dedede.png" alt="King Dedede holding a large mallet">';
             document.querySelector("#infoText").innerHTML = "<p>King Dedede is the main antagonist of the Kirby series.  He's really just here because it's fun to have a 2-letter hangman game.</p>";
         }
@@ -112,13 +130,12 @@
         //     document.querySelector("#infoText").innerHTML = "<p>With the massively successful Pokemon Red & Blue, Pikachu became a gaming sensation beloved by children everywhere.</p>";
         // }
     }
-    
-// Play sound effects upon winning or losing
+
+    // Play sound effects upon winning or losing
 
 
 
-initGame()
-playGame()
+    playGame()
 
 
 
