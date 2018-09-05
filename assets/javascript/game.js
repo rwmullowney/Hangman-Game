@@ -25,11 +25,8 @@
         guessed = [];
         guessesRemaining = 10;
 
-        console.log(word)
         // Remove the chosen word from the array
-        console.log(randNum)
         wordBank.splice(randNum, 1)
-        console.log(wordBank)
 
         // Split the letters of the word up and add them to an array, and create array with letters hidden
         for (var i = 0; i < word.length; i++) {
